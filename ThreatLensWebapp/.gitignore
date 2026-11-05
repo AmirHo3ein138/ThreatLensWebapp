@@ -1,0 +1,42 @@
+# Python environments, caches and build output
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Frontend dependencies and generated output
+node_modules/
+*.tsbuildinfo
+.vite/
+coverage/
+
+# Local configuration and investigation data
+.env
+.env.*
+!.env.example
+organization.json
+*.sqlite3*
+*.db
+*.db-*
+*.log
+.threatlens/
+.threatlens-webapp/
+data/
+reports/
+exports/
+ThreatLens_*_????-??-??.txt
+ThreatLens_*_????-??-??.txt.lock
+
+# Editor and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
