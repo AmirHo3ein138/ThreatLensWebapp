@@ -1,90 +1,115 @@
 .search-container {
-  max-width: 800px;
-  margin: 0 auto 30px auto;
-  padding: 20px 30px;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
-  direction: rtl;
+  max-width: 700px; /* عرض جمع‌وجورتر برای تمرکز بهتر روی نوار جستجو */
+  margin: 0 auto 40px auto;
+  padding: 10px;
 }
 
-.search-form {
+.search-form-unified {
   display: flex;
-  gap: 15px;
+  justify-content: center;
+  width: 100%;
 }
 
-.search-input {
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 50px; /* ظاهر کپسولی مدرن */
+  /* ترکیب سایه نرم برای عمق و یک حاشیه بسیار ظریف */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05), 0 2px 10px rgba(0, 0, 0, 0.02);
+  border: 1px solid #f1f5f9;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 8px 8px 8px 24px; /* فضای داخلی برای آیکون و دکمه */
+  direction: ltr;
+}
+
+/* افکت هاور روی کل نوار */
+.input-wrapper:hover {
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.07);
+}
+
+/* افکت درخشش امنیتی وقتی کاربر در حال تایپ است */
+.input-wrapper:focus-within {
+  box-shadow: 0 15px 40px rgba(16, 185, 129, 0.15), 0 0 0 4px rgba(16, 185, 129, 0.1);
+  border-color: #10b981;
+  transform: translateY(-2px);
+}
+
+.input-icon {
+  width: 22px;
+  height: 22px;
+  color: #cbd5e1;
+  margin-right: 15px;
+  flex-shrink: 0;
+  transition: color 0.3s ease;
+}
+
+/* سبز شدن آیکون هنگام تایپ کردن */
+.input-wrapper:focus-within .input-icon {
+  color: #10b981;
+}
+
+.search-input-unified {
   flex: 1;
-  padding: 15px 20px;
-  font-size: 1.2rem;
-  font-family: 'Fira Code', 'Inter', 'Vazirmatn', sans-serif;
-  border: 2px solid #e2e8f0;
-  border-radius: 12px;
+  border: none;
   outline: none;
-  transition: all 0.3s ease;
-  background: #f8fafc;
-  color: #1e293b;
+  background: transparent;
+  font-size: 1.15rem;
+  font-family: 'Fira Code', 'Inter', monospace;
+  color: #0f172a;
   font-weight: 500;
+  padding: 10px 0;
+  letter-spacing: 0.5px;
 }
 
-.search-input::placeholder {
+.search-input-unified::placeholder {
   font-family: 'Inter', sans-serif;
-  font-size: 1rem;
+  font-size: 1.05rem;
   color: #94a3b8;
   font-weight: 400;
+  letter-spacing: normal;
 }
 
-.search-input:focus {
-  border-color: #3b82f6;
-  background: #ffffff;
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
-}
-
-.search-btn {
+.search-btn-unified {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
   padding: 0 35px;
-  font-size: 1.15rem;
+  height: 50px; /* هم‌تراز با ارتفاع کادر داخلی */
+  font-size: 1.1rem;
   font-weight: 600;
   font-family: 'Inter', sans-serif;
   color: #ffffff;
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   border: none;
-  border-radius: 12px;
+  border-radius: 40px; /* دکمه کپسولی درونی */
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  white-space: nowrap;
   box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  margin-left: 10px;
 }
 
-.search-btn:hover:not(:disabled) {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5);
+.search-btn-unified:hover:not(:disabled) {
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
 }
 
-.search-btn:active:not(:disabled) {
-  transform: translateY(1px) scale(0.98);
+.search-btn-unified:active:not(:disabled) {
+  transform: scale(0.96); /* افکت فشرده شدن نرم */
 }
 
-.search-btn:disabled {
-  background: #94a3b8;
-  cursor: not-allowed;
-  opacity: 0.8;
+.search-btn-unified:disabled {
+  background: #f1f5f9;
+  color: #94a3b8;
   box-shadow: none;
-  transform: none;
+  cursor: not-allowed;
 }
 
-.btn-icon {
-  width: 20px;
-  height: 20px;
-}
-
-.spinner {
-  width: 20px;
-  height: 20px;
+.spinner-small {
+  width: 24px;
+  height: 24px;
   border: 3px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
   border-top-color: #ffffff;
@@ -92,7 +117,5 @@
 }
 
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+  to { transform: rotate(360deg); }
 }
