@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import { getHistory } from '../services/api';
 import './History.css';
 
-const History = () => {
+// دریافت پروپ onHistoryClick
+const History = ({ onHistoryClick }) => {
   const [historyData, setHistoryData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -34,7 +35,11 @@ const History = () => {
                 زمان استعلام: <span dir="ltr">{new Date(item.timestamp).toLocaleString('fa-IR-u-nu-latn')}</span>
               </div>
             </div>
-            <button className="details-btn">
+            {/* اضافه شدن رویداد کلیک به دکمه */}
+            <button 
+              className="details-btn"
+              onClick={() => onHistoryClick(item.ip)}
+            >
               مشاهده نتیجه
             </button>
           </div>
