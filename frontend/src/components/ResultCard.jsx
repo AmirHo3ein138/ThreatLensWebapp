@@ -40,7 +40,7 @@ const ResultCard = ({ data }) => {
     <div className="result-container">
       <div className="result-header">
         <h2>نتیجه بررسی آی‌پی: <span className="ip-highlight">{data.ip}</span></h2>
-        <p className="meta-info">زمان استعلام: <span dir="ltr">{new Date(data.timestamp).toLocaleString('fa-IR')}</span></p>
+        <p className="meta-info">زمان استعلام: <span dir="ltr">{new Date(data.timestamp).toLocaleString('fa-IR-u-nu-latn')}</span></p>
       </div>
       <div className="sources-grid">
         {data.results?.VirusTotal && renderSourceCard('VirusTotal', data.results.VirusTotal)}
