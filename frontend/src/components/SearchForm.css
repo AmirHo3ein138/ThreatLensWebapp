@@ -1,5 +1,5 @@
 .search-container {
-  max-width: 700px; /* عرض جمع‌وجورتر برای تمرکز بهتر روی نوار جستجو */
+  max-width: 700px;
   margin: 0 auto 40px auto;
   padding: 10px;
 }
@@ -16,21 +16,18 @@
   align-items: center;
   width: 100%;
   background: #ffffff;
-  border-radius: 50px; /* ظاهر کپسولی مدرن */
-  /* ترکیب سایه نرم برای عمق و یک حاشیه بسیار ظریف */
+  border-radius: 50px; 
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05), 0 2px 10px rgba(0, 0, 0, 0.02);
   border: 1px solid #f1f5f9;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 8px 8px 8px 24px; /* فضای داخلی برای آیکون و دکمه */
+  padding: 8px 8px 8px 24px;
   direction: ltr;
 }
 
-/* افکت هاور روی کل نوار */
 .input-wrapper:hover {
   box-shadow: 0 15px 50px rgba(0, 0, 0, 0.07);
 }
 
-/* افکت درخشش امنیتی وقتی کاربر در حال تایپ است */
 .input-wrapper:focus-within {
   box-shadow: 0 15px 40px rgba(16, 185, 129, 0.15), 0 0 0 4px rgba(16, 185, 129, 0.1);
   border-color: #10b981;
@@ -46,7 +43,6 @@
   transition: color 0.3s ease;
 }
 
-/* سبز شدن آیکون هنگام تایپ کردن */
 .input-wrapper:focus-within .input-icon {
   color: #10b981;
 }
@@ -77,14 +73,14 @@
   align-items: center;
   justify-content: center;
   padding: 0 35px;
-  height: 50px; /* هم‌تراز با ارتفاع کادر داخلی */
+  height: 50px;
   font-size: 1.1rem;
   font-weight: 600;
   font-family: 'Inter', sans-serif;
   color: #ffffff;
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   border: none;
-  border-radius: 40px; /* دکمه کپسولی درونی */
+  border-radius: 40px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
@@ -97,7 +93,7 @@
 }
 
 .search-btn-unified:active:not(:disabled) {
-  transform: scale(0.96); /* افکت فشرده شدن نرم */
+  transform: scale(0.96);
 }
 
 .search-btn-unified:disabled {
