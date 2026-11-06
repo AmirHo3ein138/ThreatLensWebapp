@@ -1,0 +1,15 @@
+.result-container { max-width: 800px; margin: 40px auto; padding: 30px; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); direction: rtl; }
+.result-header { border-bottom: 2px solid #f0f0f0; padding-bottom: 20px; margin-bottom: 25px; }
+.result-header h2 { margin: 0 0 10px 0; color: #1a1a1a; font-size: 1.5rem; }
+.ip-highlight { color: #2563eb; font-size: 1.8rem; }
+.meta-info { color: #64748b; font-size: 0.95rem; margin: 0; }
+.sources-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.source-card { padding: 20px; border-radius: 10px; border: 1px solid #e2e8f0; background: #f8fafc; }
+.source-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.source-title { margin: 0; font-size: 1.25rem; font-weight: 600; color: #334155; }
+.badge { padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+.status-success { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
+.status-no_report { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+.status-error { background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; }
+.source-details p { margin: 8px 0; color: #475569; font-size: 0.95rem; line-height: 1.5; }
+.score-value { font-weight: bold; font-size: 1.1rem; color: #0f172a; }
