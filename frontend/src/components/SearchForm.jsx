@@ -1,53 +1,50 @@
 import { useState } from 'react';
-import './SearchForm.css';
 
-const SearchForm = ({ onSearch, loading }) => {
+export default function SearchForm({ onSearch }) {
   const [ip, setIp] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault(); 
-    if (ip.trim()) {
-      onSearch(ip.trim());
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+
+    if (!ip.trim()) {
+      setError('لطفاً یک آی‌پی وارد کنید.');
+      return;
+    }
+
+    setLoading(true);
+    try {
+      await onSearch(ip);
+      setIp('');
+    } catch (err) {
+      setError(err.message || 'خطا در ارتباط با سرور.');
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="search-container">
-      <form onSubmit={handleSubmit} className="search-form-unified">
-        <div className="input-wrapper">
-          {/* آیکون جستجو داخل کادر */}
-          <svg className="input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-          
+    <div style={{ maxWidth: '500px', margin: '2rem auto', padding: '1.5rem', background: '#fff', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+      <h3 style={{ marginTop: 0, marginBottom: '1.5rem' }}>بررسی آی‌پی مشکوک</h3>
+      <form onSubmit={handleSubmit}>
+        <div style={{ marginBottom: '1rem' }}>
           <input
             type="text"
-            className="search-input-unified"
-            placeholder="Enter IP Address to scan (e.g., 8.8.8.8)"
+            className="base-input"
+            placeholder="مثال: 8.8.8.8"
             value={ip}
             onChange={(e) => setIp(e.target.value)}
-            dir="ltr"
             disabled={loading}
-            autoComplete="off"
-            spellCheck="false"
-          />
-          
-          <button 
-            type="submit" 
-            className="search-btn-unified" 
-            disabled={loading || !ip.trim()} 
             dir="ltr"
-          >
-            {loading ? (
-              <span className="spinner-small"></span>
-            ) : (
-              'Scan'
-            )}
-          </button>
+          />
         </div>
+        {error && <div className="error-message" style={{ marginBottom: '1rem' }}>{error}</div>}
+        <button type="submit" className="base-button" style={{ width: '100%' }} disabled={loading}>
+          {loading ? 'در حال بررسی منابع...' : 'استعلام آی‌پی'}
+        </button>
       </form>
     </div>
   );
-};
-
-export default SearchForm;
+}
