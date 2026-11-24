@@ -1,22 +1,22 @@
-import Card from './components/ui/Card';
-import Input from './components/ui/Input';
-import Button from './components/ui/Button';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import Layout from './components/layout/Layout';
+import DashboardPage from './pages/DashboardPage';
+import CheckIpPage from './pages/CheckIpPage';
+import HistoryPage from './pages/HistoryPage';
+import ResultDetailPage from './pages/ResultDetailPage';
 
 export default function App() {
   return (
-    <div style={{ maxWidth: '520px', margin: '60px auto', padding: '0 16px' }}>
-      <Card
-        title="ThreatLens — پایه فرانت‌اند آماده است"
-        subtitle="کامپوننت‌های مشترک Button، Input و Card با موفقیت بارگذاری شدند."
-      >
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-          <Input id="sample-ip" label="نمونه کادر ورودی IP" placeholder="8.8.8.8" ltr />
-          <div style={{ display: 'flex', gap: '10px' }}>
-            <Button variant="primary">دکمه اصلی</Button>
-            <Button variant="secondary">دکمه فرعی</Button>
-          </div>
-        </div>
-      </Card>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<DashboardPage />} />
+          <Route path="check" element={<CheckIpPage />} />
+          <Route path="history" element={<HistoryPage />} />
+          <Route path="history/:id" element={<ResultDetailPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
