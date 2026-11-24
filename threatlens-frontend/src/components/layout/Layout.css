@@ -1,0 +1,79 @@
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.app-header__inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.app-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.app-brand__badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background-color: var(--status-info-bg);
+  color: var(--status-info);
+}
+
+.app-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.app-nav__link {
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.app-nav__link:hover {
+  background-color: var(--bg-surface-hover);
+  color: var(--text-primary);
+}
+
+.app-nav__link--active {
+  background-color: var(--accent-primary);
+  color: #ffffff;
+}
+
+.app-nav__link--active:hover {
+  background-color: var(--accent-primary-hover);
+  color: #ffffff;
+}
+
+.app-main {
+  flex: 1;
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 28px 20px 48px;
+}
